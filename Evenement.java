@@ -56,8 +56,8 @@ public class Evenement {
     }
     
 
-    public void setNombreSpectateurs(int NombreSpectateurs) {
-        this.NombreSpectateurs = NombreSpectateurs;
+    public void setNombreSpectateursPotentiels(int NombreSpectateursPotentiels) {
+        this.NombreSpectateursPotentiels = NombreSpectateursPotentiels;
     }
 
     public void setDatePrévue(Date DatePrévue) {
@@ -86,8 +86,8 @@ public class Evenement {
     }
     
 
-    public int getNombreSpectateurs() {
-        return NombreSpectateurs;
+    public int getNombreSpectateursPotentiels() {
+        return NombreSpectateursPotentiels;
     }
 
     public Date getDatePrévue() {

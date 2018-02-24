@@ -12,7 +12,8 @@ public class Evenement {
     private String titre; 
     private String detail;
     private String VilleConcerne;
-    private int NombreSpectateurs; 
+    private int NombreSpectateursPotentiels; 
+    static private int nbspectateurs;
     private Date DatePrévue;
     private String etat;
     private Salle realise;
@@ -32,8 +33,11 @@ public class Evenement {
         realise=rea;
         valide=vali;
         organ=orga;
+        nbspectateurs++;
     }
-    
+    public void getNbspectateurs(){
+        return nbspectateurs;
+    }
 
     public void setType(String type) {
         this.type = type;

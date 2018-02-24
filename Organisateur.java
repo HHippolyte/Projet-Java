@@ -10,15 +10,14 @@ package projetjava;
  * @author Maximilien
  */
 public class Organisateur {
-    private String numOrga;
      private String nomOrga;
     private String telephoneOrga;
     private String emailorga;
     private String loginOrga;
     private String motDePasseOrga;
-    public Organisateur (String numorga,String nomo,String prenomo, String telo, String mailo, String logo, String mdpo)
+    public Organisateur (String nomo,String prenomo, String telo, String mailo, String logo, String mdpo)
     {   
-        numOrga=numorga;
+        
         nomOrga=nomo;
         telephoneOrga=telo;
         emailorga=mailo;
@@ -26,9 +25,7 @@ public class Organisateur {
         motDePasseOrga=mdpo;
     }
 
-    public void setNumOrga(String numOrga) {
-        this.numOrga = numOrga;
-    }
+   
     
     
     
@@ -54,9 +51,6 @@ public class Organisateur {
         this.motDePasseOrga = motDePasseOrga;
     }
 
-    public String getNumOrga() {
-        return numOrga;
-    }
     
     public String getNomOrga() {
         return nomOrga;

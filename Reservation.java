@@ -15,12 +15,14 @@ public class Reservation {
     private int nombreplaces;
     private Date dateréservation;
     private Evenement reserve;
-    public Reservation (String numres, int nbplaces,Date daterés, Abonne pro, Evenement reser)
+    private Abonne procede
+    public Reservation (String numres, int nbplaces,Date daterés, Abonne pro, Evenement reser, abonne proc)
     {   
         numreserv=numres;
         nombreplaces=nbplaces;
         dateréservation=daterés;
         reserve=reser;
+        procede=proc;
     }
 
     public String getNumreserv() {
@@ -56,7 +58,14 @@ public class Reservation {
     public Evenement getReserve() {
         return reserve;
     }
+    
+     public void setProcede(Abonne procede) {
+        this.procede = procede;
+    }
 
+    public Abonne getProcede() {
+        return procede;
+    }
    
     
 }

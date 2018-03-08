@@ -128,41 +128,30 @@ public class GestionMembre {
         else 
         {
             System.out.println("Que voulez-vous modifier ?");
-            System.out.println("1 - Modifier le nom de la salle :");
-            System.out.println("2 - Modifier la ville :");
-            System.out.println("3 - Modifier la région :");
-            System.out.println("4 - Modifier l'adresse de la salle :");
-            System.out.println("5 - Modifier le nombre de places :");
+            System.out.println("1 - Modifier la ville :");
+            System.out.println("2 - Modifier la région :");
+            System.out.println("3 - Modifier l'adresse de la salle :");
+            System.out.println("4 - Modifier le nombre de places :");
             i=Clavier.lireInt();
             switch (i)
             {
+              
                 case 1 : 
-                    System.out.println("Quel nouveau nom voulez-vous donner :");
-                    ne=Clavier.lireString();
-                    s=gs.RechercheSalle(ne);
-                     if (s== null) {
-                    s.setNomSalle(ne);}
-                    else
-                     {
-                    System.out.println("Cette salle existe déjà !"); 
-                     }
-                break;
-                case 2 : 
                     System.out.println("Saisissez le nom de la ville :");
                     v=Clavier.lireString();
                     s.setVille(v);
                 break;
-                case 3 : 
+                case 2 : 
                     System.out.println("Saisissez le nom de la région :");
                     r=Clavier.lireString();
                     s.setRegion(r);
                 break;
-                case 4 :
+                case 3 :
                     System.out.println("Saisissez le nom de l'adresse :");
                     a=Clavier.lireString();
                     s.setAdresse(a);
                 break;
-                case 5 : 
+                case 4 : 
                     System.out.println("Saisissez le nombre de la place :");
                     nbp=Clavier.lireInt();
                     s.setNombrePlaces(nbp);

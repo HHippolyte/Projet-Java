@@ -1,0 +1,46 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package projetjava.GestionDomaine;
+import Domaine.*; 
+import java.util.*;
+/**
+ *
+ * @author humbe
+ */
+public class GestionReservation {
+    private ArrayList<Reservation> listReservation;
+    public GestionReservation()
+    {
+        listReservation=new ArrayList();
+    }
+
+    public ArrayList<Reservation> getListReservation() {
+        return listReservation;
+    }
+
+    public void setListReservation(ArrayList<Reservation> listReservation) {
+        this.listReservation = listReservation;
+    }
+    
+public Reservation créerReservation (String numres, int nbplaces,Date daterés, Abonne proc, Evenement reser) 
+    {  
+    try{
+        Reservation r;
+        r=new Reservation (numres,nbplaces,daterés,proc,reser);
+        listReservation.add(r);
+        return r;
+    }
+    catch (Erreur e){
+        System.out.println(e.getMessage());
+        
+    }
+        return null;
+    } 
+    
+    
+    
+    
+}

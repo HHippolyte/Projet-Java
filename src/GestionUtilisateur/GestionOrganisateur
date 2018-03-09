@@ -16,13 +16,13 @@ import java.util.Date;
 public class GestionOrganisateur {
     private ArrayList<Organisateur>listOrganisateur;
     private GestionEvenement ge;
-    private Généralités g;
+
     
 public GestionOrganisateur()
     {
     listOrganisateur= new ArrayList();
     ge= new GestionEvenement();
-    g= new Généralités();
+
     }
 
     public ArrayList<Organisateur> getListOrganisateur() {
@@ -57,7 +57,7 @@ public void menuOrganisateur()
             break;
 
              case 3 :
-                annulationEvenement();
+              //  annulationEvenement();
                 menuOrganisateur();
             break;
              case 4 :

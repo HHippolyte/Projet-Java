@@ -10,14 +10,15 @@ package Domaine;
  * @author Maximilien
  */
 public class Organisateur {
-    private String numOrga;
-     private String nomOrga;
+    
+    private String nomOrga;
     private String telephoneOrga;
     private String emailorga;
     private String loginOrga;
     private String motDePasseOrga;
-    public Organisateur (String numorga,String nomo,String prenomo, String telo, String mailo, String logo, String mdpo)
+    public Organisateur (String nomo,String prenomo, String telo, String mailo, String logo, String mdpo)
     {   
+
         nomOrga=nomo;
         telephoneOrga=telo;
         emailorga=mailo;
@@ -73,12 +74,4 @@ public class Organisateur {
         return motDePasseOrga;
     }
 
-    public void setNumOrga(String numOrga) {
-        this.numOrga = numOrga;
-    }
-
-    public String getNumOrga() {
-        return numOrga;
-    }
-    
 }

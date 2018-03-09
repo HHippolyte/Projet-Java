@@ -24,7 +24,7 @@ public class GestionEvenement {
     public ArrayList<Evenement> getListEvenement() {
         return listEvenement;
     }
-     public Evenement créerEvenement (String numeve, String t, String ti, String d,String vilcon, int nbs, Date dp,String et, Salle rea, Membre vali, Organisateur orga) 
+     public Evenement créerEvenement (int numeve, String t, String ti, String d,String vilcon, int nbs, Date dp,String et, Salle rea, Membre vali, Organisateur orga) 
     {  
     try{
         Evenement eve;
@@ -39,13 +39,13 @@ public class GestionEvenement {
         return null;
     } 
      
-      public Evenement RechercheEvenement (String numeve)  
+      public Evenement RechercheEvenement (int numeve)  
     {
             Evenement eve = null;
         if (!listEvenement.isEmpty()) {
         for (int i=0; i<listEvenement.size(); i++)
     {
- if (listEvenement.get(i).getNumeven().equalsIgnoreCase(numeve))
+ if (listEvenement.get(i).getNumeven()==numeve)
  {
  eve = listEvenement.get(i);
  }
@@ -55,14 +55,14 @@ public class GestionEvenement {
 
     }
       
-        public ArrayList<Evenement> recherchelistEvenement(String numeve)
+        public ArrayList<Evenement> recherchelistEvenement(int numeve)
  {
  ArrayList<Evenement> list;
  list = new ArrayList();
  if (!listEvenement.isEmpty()) {
  for (int i=0; i<listEvenement.size(); i++)
  {
- if (listEvenement.get(i).getNumeven().equalsIgnoreCase(numeve))
+ if (listEvenement.get(i).getNumeven()==numeve)
  {
  list.add(listEvenement.get(i));
  }
@@ -70,6 +70,11 @@ public class GestionEvenement {
  }
 return list;      
 }
+
+/*
+public Evenement annulerEvenement()
+{
+    
 }
-
-
+*/
+}

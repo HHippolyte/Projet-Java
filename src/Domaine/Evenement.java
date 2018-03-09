@@ -1,5 +1,3 @@
-
-
 package Domaine;
 import java.util.Date;
 /**
@@ -7,7 +5,8 @@ import java.util.Date;
  * @author Maximilien
  */
 public class Evenement {
-    private String numeven;
+    private static int nbreven=0;
+    private int numeven;
     private String type;
     private String titre; 
     private String detail;
@@ -18,11 +17,12 @@ public class Evenement {
     private Salle realise;
     private Membre valide;
     private Organisateur organ;
-    public Evenement (String numeve, String t, String ti, String d,String vilcon, int nbs, Date dp,String e, Salle rea, Membre vali, Organisateur orga) throws Erreur
+    public Evenement (int numeve, String t, String ti, String d,String vilcon, int nbs, Date dp,String e, Salle rea, Membre vali, Organisateur orga) throws Erreur
     {   
         if(dp.compareTo(new Date())<0)
                 throw new Erreur ("date ne devant pas être inférieure à la date du jour");
-        numeven=numeve;
+        nbreven++;
+        numeven=nbreven;
         type=t;
         titre=ti;
         detail=d;
@@ -116,7 +116,7 @@ public class Evenement {
         this.valide = valide;
     }
 
-    public void setNumeven(String numeven) {
+    public void setNumeven(int numeven) {
         this.numeven = numeven;
     }
 
@@ -124,12 +124,15 @@ public class Evenement {
         this.organ = organ;
     }
 
-    public String getNumeven() {
+    public int getNumeven() {
         return numeven;
     }
 
     public Organisateur getOrgan() {
         return organ;
+    }
+    public int getNbreven(){
+        return nbreven;
     }
     public String getInfos(){
         return ("Référence :" +getNumeven()+ "titre :" +getTitre() + "détail :" +getDetail()+"Type :" +getType() +"Ville concernée :" +getVilleConcerne() + "Date prévue : " +getDatePrévue() +" Etat :" +getEtat()+ "Nombre spectateurs " +getNombreSpectateursPotentiels());

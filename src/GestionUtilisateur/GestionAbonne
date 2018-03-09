@@ -1,0 +1,204 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package projetjava.GestionUtilisateur;
+import Domaine.*;
+import Gestion.Généralités;
+import GestionDomaine.GestionEvenement;
+import java.util.ArrayList;
+import java.util.Date;
+/**
+ *
+ * @author humbe
+ */
+public class GestionAbonne {
+    private ArrayList<Abonne>listAbonne;
+    private GestionEvenement ge;
+    private Généralités g;
+
+public GestionAbonne()
+    {
+    listAbonne= new ArrayList();
+    ge= new GestionEvenement();
+    g= new Généralités();
+    }
+
+    public ArrayList<Abonne> getListAbonne() {
+        return listAbonne;
+    }
+
+    public void setListAbonne(ArrayList<Abonne> listAbonne) {
+        this.listAbonne = listAbonne;
+    }
+
+    public GestionEvenement getGe() {
+        return ge;
+    }
+
+    public void setGe(GestionEvenement ge) {
+        this.ge = ge;
+    }
+
+    public Généralités getG() {
+        return g;
+    }
+
+    public void setG(Généralités g) {
+        this.g = g;
+    }
+
+public void menuAbonne()
+    {
+        int i;
+        System.out.println("Bonjour, que voulez-vous faire ?");
+        System.out.println("1 - Modifier mes informations abonné:");
+        System.out.println("2 - Créer une réservation:");
+        System.out.println("3 - Modifier une réservation:");
+        System.out.println("4 - Annuler une réservation:");
+        System.out.println("5 - Supprimer mon compte organisateur:");
+        System.out.println("6 - Revenir au menu général");
+     i=Clavier.lireInt();
+        switch (i)
+                {
+            case 1 : 
+                modifierAbonne();
+                menuAbonne();
+            break;
+            case 2 : 
+                creationReservation();
+                menuAbonne();
+            break;
+
+             case 3 :
+               modifierReservation();
+                menuAbonne();
+            break;
+             case 4 :
+                annulerReservation();
+                menuAbonne();
+            break;
+            case 5 :
+                supprimerAbonne();
+                menuAbonne();
+            break;
+            
+            case 6: g.MenuGénéral();
+            break;
+            default: menuAbonne();
+                }
+    }     
+public void créerAbonne()  
+       {
+          Abonne a;
+          String nm,pre,tel,em,la,mdpa;
+          System.out.println("Veuillez saisir un login :");
+          la=Clavier.lireString();     
+          a=RechercherAbonne();
+        if (a!= null) {
+            System.out.println("Ce login est déjà utilisé !"); 
+        }
+        else
+        {
+        System.out.println("Veuillez saisir un mot de passe :");
+        mdpa=Clavier.lireString();
+        System.out.println("Veuillez saisir un nom :");
+        nm=Clavier.lireString();
+        System.out.println("Veuillez saisir un prénom :");
+        pre=Clavier.lireString();
+        System.out.println("Veuillez saisir un téléphone :");
+        tel=Clavier.lireString();
+        System.out.println("Veuillez saisir un mail :");
+        em=Clavier.lireString();
+        a=new Abonne(nm, pre,tel,em,la,mdpa);
+        
+        }
+       }
+
+public Abonne RechercherAbonne()
+    {   
+        Abonne a=null;
+        String la, mdpa;
+        System.out.println("Veuillez saisir le login du membre:");
+        la=Clavier.lireString();
+        System.out.println("Veuillez saisir votre mot de passe :");
+        mdpa=Clavier.lireString();
+        if (!listAbonne.isEmpty())
+        {
+          for (int i=0; i<listAbonne.size(); i++)
+            {
+               if ((listAbonne.get(i).getLoginAbonne().equalsIgnoreCase(la))&& (listAbonne.get(i).getMotDePasseAbonne().equalsIgnoreCase(mdpa)));
+                {
+                    a= listAbonne.get(i);
+                }
+            }
+        }
+        return a;
+    }
+
+public void creationReservation()
+{
+    Reservation e= null;
+    int numres,nbplaces,nmreserv;
+    Date daterés;
+    Abonne proc;
+    Evenement reser;
+    
+    System.out.println("Veuillez rentrer le nom de l'évenement pour réservation");
+    nmreserv=Clavier.lireInt();
+    
+    
+    
+    /*
+    String  ti,t,d,vilcon,et;
+    int numeve,nbs,an,m,j;
+    Date dp;
+    Salle rea=null;
+    Membre vali=null;
+    Organisateur orga=null;
+    System.out.println("Veuillez rentrer le nom de l'événement");
+    ti=Clavier.lireString();
+    System.out.println("Veuillez rentrer le type d'évenement");
+    t=Clavier.lireString();
+    System.out.println("Donner l'année prévue du spectacle ");
+    an = Clavier.lireInt();
+    System.out.println("Donner le mois prévu du spectacle ");
+    m = Clavier.lireInt();
+    System.out.println("Donner le jour prévu du spectacle ");
+    j = Clavier.lireInt();
+    dp = new Date(an-1900,m-1,j);
+    System.out.println("Veuillez rentrer la ville concernée par l'événement");
+    vilcon=Clavier.lireString();
+    System.out.println("Veuillez rentrer le nombre de spectateurs prévu pour l'événement");
+    nbs=Clavier.lireInt();
+    System.out.println("Veuillez rentrer le détail de l'événement");
+    d=Clavier.lireString();
+    et="EN COURS";
+    numeve=e.getNumeven();
+    e=ge.créerEvenement(numeve, t, ti, d, vilcon, nbs, dp, et, rea, vali, orga);
+}
+}
+*/
+        
+public void modifierReservation()
+{
+    
+}
+
+public void annulerReservation()
+{
+    
+}
+
+public void supprimerAbonne()
+{
+    
+}
+
+
+    
+    
+    
+    
+}

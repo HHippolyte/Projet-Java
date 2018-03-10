@@ -6,8 +6,8 @@
 package Gestion;
 import Domaine.*;
 import GestionUtilisateur.*;
+import GestionDomaine.GestionEvenement;
 import java.util.ArrayList;
-import projetjava.GestionUtilisateur.GestionOrganisateur;
 /**
  *
  * @author Maximilien
@@ -15,10 +15,13 @@ import projetjava.GestionUtilisateur.GestionOrganisateur;
 public class Généralités {
     private GestionMembre gm;
     private GestionOrganisateur go;
+    private GestionAbonné ga;
+    private GestionEvenement ge;
     public Généralités ()
     {
         gm= new GestionMembre();
-        go= new GestionOrganisateur();
+        go=new GestionOrganisateur();
+        ga=new GestionAbonné();
     }
 
     public GestionMembre getGm() {
@@ -28,6 +31,15 @@ public class Généralités {
     public void setGm(GestionMembre gm) {
         this.gm = gm;
     }
+
+    public GestionOrganisateur getGo() {
+        return go;
+    }
+
+    public void setGo(GestionOrganisateur go) {
+        this.go = go;
+    }
+    
     
     public void MenuGénéral()
     {
@@ -37,6 +49,9 @@ public class Généralités {
         System.out.println("2- Créer un compte en tant que membre");
         System.out.println("3 - S'authentifier en tant qu'organisateur");
         System.out.println("4- Créer un compte organisateur");
+        System.out.println("5- S'authentifier en tant qu'abonné");
+        System.out.println("6 - Créer un compte abonné");
+        System.out.println("7 - Afficher l'ensemble des évènements proposés");
         i=Clavier.lireInt();
         switch (i)
                 {
@@ -49,6 +64,13 @@ public class Généralités {
             break;
             case 4 : go.créerOrganisateur();
                      go.menuOrganisateur();
+            case 5: AuthentificationAbonné();
+            break;
+            case 6: ga.créerAbonne();
+                    ga.menuAbonne();  
+            break;
+            case 7 : 
+                    ge.AfficherEvenement();    
                 }
         
     }
@@ -56,6 +78,8 @@ public class Généralités {
     public void AuthentificationMembre()
     {
         Membre m;
+        int i;
+        String lm,mdpm;
         m=gm.RechercherMembre();
         if (m!= null) 
         {
@@ -64,9 +88,8 @@ public class Généralités {
         }
         System.out.println("Saisie incorrecte"); 
         MenuGénéral();
-                
     }
-    public void AuthentificationOrganisateur()
+     public void AuthentificationOrganisateur()
     {
         Organisateur o;
         o=go.RechercherOrganisateur();
@@ -78,12 +101,22 @@ public class Généralités {
         System.out.println("Saisie incorrecte"); 
         MenuGénéral();
         }
+     public void AuthentificationAbonné()
+     {
+        Abonne a;
+        a=ga.RechercherAbonne();
+        if (a!=null)
+        {
+            System.out.println("Bienvenue");
+            ga.menuAbonne();
+        }
+        System.out.println("Saisie incorrecte"); 
+        MenuGénéral();
+     }
     public static void main(String[] args) {
         Généralités g;
         g= new Généralités();
         g.MenuGénéral();
     }
-
-
-
+    
 }

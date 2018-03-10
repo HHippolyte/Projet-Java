@@ -1,3 +1,5 @@
+
+
 package Domaine;
 import java.util.Date;
 /**
@@ -5,8 +7,7 @@ import java.util.Date;
  * @author Maximilien
  */
 public class Evenement {
-    private static int nbreven=0;
-    private int numeven;
+    private String numeven;
     private String type;
     private String titre; 
     private String detail;
@@ -17,19 +18,18 @@ public class Evenement {
     private Salle realise;
     private Membre valide;
     private Organisateur organ;
-    public Evenement (int numeve, String t, String ti, String d,String vilcon, int nbs, Date dp,String e, Salle rea, Membre vali, Organisateur orga) throws Erreur
+    public Evenement (String numeve, String t, String ti, String d,String vilcon, int nbs, Date dp,String et, Salle rea, Membre vali, Organisateur orga) throws Erreur
     {   
         if(dp.compareTo(new Date())<0)
                 throw new Erreur ("date ne devant pas être inférieure à la date du jour");
-        nbreven++;
-        numeven=nbreven;
+        numeven=numeve;
         type=t;
         titre=ti;
         detail=d;
         VilleConcerne=vilcon;
         NombreSpectateursPotentiels=nbs;
         DatePrévue=dp;
-        etat=e;
+        etat=et;
         realise=rea;
         valide=vali;
         organ=orga;
@@ -116,7 +116,7 @@ public class Evenement {
         this.valide = valide;
     }
 
-    public void setNumeven(int numeven) {
+    public void setNumeven(String numeven) {
         this.numeven = numeven;
     }
 
@@ -124,15 +124,12 @@ public class Evenement {
         this.organ = organ;
     }
 
-    public int getNumeven() {
+    public String getNumeven() {
         return numeven;
     }
 
     public Organisateur getOrgan() {
         return organ;
-    }
-    public int getNbreven(){
-        return nbreven;
     }
     public String getInfos(){
         return ("Référence :" +getNumeven()+ "titre :" +getTitre() + "détail :" +getDetail()+"Type :" +getType() +"Ville concernée :" +getVilleConcerne() + "Date prévue : " +getDatePrévue() +" Etat :" +getEtat()+ "Nombre spectateurs " +getNombreSpectateursPotentiels());

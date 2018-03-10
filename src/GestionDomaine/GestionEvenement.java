@@ -16,7 +16,7 @@ public class GestionEvenement {
     {
         listEvenement=new ArrayList();
     }
-
+    
     public void setListEvenement(ArrayList<Evenement> listEvenement) {
         this.listEvenement = listEvenement;
     }
@@ -24,7 +24,8 @@ public class GestionEvenement {
     public ArrayList<Evenement> getListEvenement() {
         return listEvenement;
     }
-     public Evenement créerEvenement (int numeve, String t, String ti, String d,String vilcon, int nbs, Date dp,String et, Salle rea, Membre vali, Organisateur orga) 
+    
+     public Evenement créerEvenement (String numeve, String t, String ti, String d,String vilcon, int nbs, Date dp,String et, Salle rea, Membre vali, Organisateur orga) 
     {  
     try{
         Evenement eve;
@@ -39,13 +40,13 @@ public class GestionEvenement {
         return null;
     } 
      
-      public Evenement RechercheEvenement (int numeve)  
+      public Evenement RechercheEvenement (String numeve)  
     {
             Evenement eve = null;
         if (!listEvenement.isEmpty()) {
         for (int i=0; i<listEvenement.size(); i++)
     {
- if (listEvenement.get(i).getNumeven()==numeve)
+ if (listEvenement.get(i).getNumeven().equalsIgnoreCase(numeve))
  {
  eve = listEvenement.get(i);
  }
@@ -55,14 +56,14 @@ public class GestionEvenement {
 
     }
       
-        public ArrayList<Evenement> recherchelistEvenement(int numeve)
+        public ArrayList<Evenement> recherchelistEvenement(String numeve)
  {
  ArrayList<Evenement> list;
  list = new ArrayList();
  if (!listEvenement.isEmpty()) {
  for (int i=0; i<listEvenement.size(); i++)
  {
- if (listEvenement.get(i).getNumeven()==numeve)
+ if (listEvenement.get(i).getNumeven().equalsIgnoreCase(numeve))
  {
  list.add(listEvenement.get(i));
  }
@@ -70,11 +71,34 @@ public class GestionEvenement {
  }
 return list;      
 }
-
-/*
-public Evenement annulerEvenement()
+        public Evenement annulerEvenement()
 {
-    
+    Evenement eve=null;
+  return eve;  
 }
-*/
+         public void AfficherEvenement()
+ {
+        int i;
+        Evenement eve;
+        Reservation r;
+        if (!listEvenement.isEmpty()) {
+            for (i=0; i<listEvenement.size();i++)
+         {
+                System.out.println("Numéro de l'évènement:" + listEvenement.get(i).getNumeven());
+                System.out.println("Titre de l'évènement :"+ listEvenement.get(i).getTitre());
+                System.out.println("Type d'évènement :" + listEvenement.get(i).getType());
+                System.out.println("Détails de l'évènement:" + listEvenement.get(i).getDetail());
+                System.out.println("Ville où l'évènement a lieu :" + listEvenement.get(i).getVilleConcerne());
+                System.out.println("Nombres de spectateurs prévus:" + listEvenement.get(i).getNombreSpectateursPotentiels());
+                System.out.println("Date prévue:" + listEvenement.get(i).getDatePrévue());
+                System.out.println("Etat del'évènement:" + listEvenement.get(i).getEtat());
+                
+                
+         }
+      
 }
+ }
+  
+}
+
+

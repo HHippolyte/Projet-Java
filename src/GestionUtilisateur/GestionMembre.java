@@ -75,7 +75,7 @@ public class GestionMembre {
                 menuMembre ();
             break;
             case 2 : 
-                AfficherSalle();
+                gs.AfficherSalle();
                 ModifierSalle();
                 menuMembre();
             break;
@@ -83,7 +83,11 @@ public class GestionMembre {
                 gs.SupprimerSalle();
                 menuMembre();
             break;
-            case 4: g.MenuGénéral();
+            case 4: 
+                
+            case 5: 
+                g.MenuGénéral();
+            break;
              
                       
         }
@@ -135,7 +139,7 @@ public class GestionMembre {
             i=Clavier.lireInt();
             switch (i)
             {
-              
+                
                 case 1 : 
                     System.out.println("Saisissez le nom de la ville :");
                     v=Clavier.lireString();
@@ -230,29 +234,8 @@ public class GestionMembre {
         }
         return m;
     }
-          public void AfficherSalle()
- {
- String n;
- ArrayList<Salle> list;
- System.out.println("Donner le nom de la salle ");
- n = Clavier.lireString();
- list = gs.recherchelistSalle(n);
- if (!list.isEmpty()) {
- for (int i = 0; i<list.size();i++)
- {
- System.out.println("ville :" + list.get(i).getVille());
- System.out.println("région :" + list.get(i).getRegion());
- System.out.println("adresse :" + list.get(i).getAdresse());
- System.out.println("Nombre de places :" + list.get(i).getNombrePlaces());
- }
- }}
-
-
-
-
-
-
-
+         
+ 
 }
  
     

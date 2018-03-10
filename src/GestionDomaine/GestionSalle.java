@@ -96,4 +96,20 @@ public class GestionSalle {
  }
 return list;      
 }
+
+ public void AfficherSalle()
+ {
+        int i;
+        Salle s;
+        if (!listSalle.isEmpty()) {
+            for (i=0; i<listSalle.size();i++)
+         {
+                System.out.println("ville :" + listSalle.get(i).getVille());
+                System.out.println("région :" + listSalle.get(i).getRegion());
+                System.out.println("adresse :" + listSalle.get(i).getAdresse());
+                System.out.println("Nombre de places :" + listSalle.get(i).getNombrePlaces());
+ }
+        }}
+
+
 }

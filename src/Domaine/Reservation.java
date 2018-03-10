@@ -11,27 +11,41 @@ import java.util.Date;
  * @author Maximilien
  */
 public class Reservation {
-    private String numreserv;
+    static private int numreserv;
+    private String nomreserv;
     private int nombreplaces;
     private Date dateréservation;
-    static private int nbspectateurs;
+    private int nbspectateurs;
     private Evenement reserve;
     private Abonne procede;
-    public Reservation (String numres, int nbplaces,Date daterés, Abonne proc, Evenement reser)
+    public Reservation (String numres, String nomres, int nbplaces,Date daterés, Abonne proc, Evenement reser)
     {   
-        numreserv=numres;
+        numreserv++;
+        nomreserv=nomres;
         nombreplaces=nbplaces;
         dateréservation=daterés;
         reserve=reser;
         procede=proc;
-         nbspectateurs++;
+        nbspectateurs=nbspectateurs;
     }
 
-    public static int getNbspectateurs() {
-        return nbspectateurs;
+    public int getNbspectateurs() {
+        return nbspectateurs=numreserv+nombreplaces;
     }
-    public String getNumreserv() {
+    public static int getNumreserv() {
         return numreserv;
+    }
+
+    public Reservation(int numres, String nomres, int nbplaces, Date daterés, Abonne proc, Evenement reser) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public String getNomreserv() {
+        return nomreserv;
+    }
+
+    public void setNomreserv(String nomreserv) {
+        this.nomreserv = nomreserv;
     }
     
 
@@ -43,7 +57,7 @@ public class Reservation {
         return dateréservation;
     }
 
-    public void setNumreserv(String numreserv) {
+    public void setNumreserv(int numreserv) {
         this.numreserv = numreserv;
     }
     

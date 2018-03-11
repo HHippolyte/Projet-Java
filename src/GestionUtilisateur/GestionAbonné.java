@@ -13,14 +13,14 @@ import java.util.Date;
  *
  * @author Maximilien
  */
-public class GestionAbonné {
+public class GestionAbonne {
    private ArrayList<Abonne>listAbonne;
    private GestionEvenement ge;
    private Généralités g;
     
     
     
-    public  GestionAbonné()
+    public  GestionAbonne()
     {
     listAbonne= new ArrayList();
     ge= new GestionEvenement();
@@ -192,10 +192,9 @@ public Abonne ModifierAbonne()
 
 public void creationReservation()
 {
-    Reservation r= null;
+    Reservation r;
     Evenement e;
-    
-    int nbplaces,numres;
+    int nbplaces,numres=0;
     Date daterés;
     Abonne proc;
     Evenement reser;
@@ -206,17 +205,17 @@ public void creationReservation()
     System.out.println("Quel est le numéro de l'évènement voulu : ");
     numeve=Clavier.lireString();
     reser=ge.RechercheEvenement(numeve);
-    numres=r.getNumreserv();
+
     System.out.println("Veuillez saisir le nombre de places voulues :");
     nbplaces=Clavier.lireInt();
     System.out.println("Quel est le nom personnalisé de votre réservation : ");
     nomres=Clavier.lireString();
-    System.out.println("Donner l'année prévue de l'évènement: ");
-    an = Clavier.lireInt();
-    System.out.println("Donner le mois prévu de l'évènement: ");
-    m = Clavier.lireInt();
-    System.out.println("Donner le jour prévu : ");
-    j = Clavier.lireInt();
+   
+    an = new Date().getYear();
+    
+    m = new Date().getDate();
+    
+    j = new Date().getDay();
     daterés = new Date(an-1900,m-1,j);
     if (r.getNbspectateurs()>rea.getNombrePlaces())
     {

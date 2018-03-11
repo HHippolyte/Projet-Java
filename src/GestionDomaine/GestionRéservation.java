@@ -10,10 +10,10 @@ import java.util.*;
  *
  * @author Maximilien
  */
-public class GestionRéservation {
+public class GestionReservation {
     private ArrayList<Reservation> listReservation;
     
-    public GestionRéservation()
+    public GestionReservation()
     {       
         listReservation=new ArrayList();
     }
@@ -24,14 +24,14 @@ public class GestionRéservation {
     public void setListReservation(ArrayList<Reservation> listReservation)
             {        this.listReservation = listReservation;    }
     
-public Reservation créerReservation (int numres, String nomres,  int nbplaces,Date daterés, Abonne proc, Evenement reser)     {  
+public Reservation créerReservation (int numres, String nomres,  int nbplaces,Date daterés, Abonne proc, Evenement reser)     
     {
         Reservation r;
         r=new Reservation (numres,nomres,nbplaces,daterés,proc,reser);
         listReservation.add(r);        
         return r;
     }
-}
+
 
  public Reservation RechercheRéservation (String nomres)  
     {
